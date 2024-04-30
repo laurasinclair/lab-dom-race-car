@@ -2,8 +2,8 @@ class Game {
 	constructor() {
 		this.startScreen = document.querySelector('#game-intro')
 		this.gameScreen = document.querySelector('#game-screen')
-		this.gameEndScreen = document.querySelector('#game-end')
-		// this.player = new Player(this.gameScreen, this.left, this.top, './images/car.png');
+		this.gameLoseScreen = document.querySelector('#game-lose')
+		this.gameWinScreen = document.querySelector('#game-win')
 		this.player = new Player(this.gameScreen, 200, 500, 70, 110, './images/car.png')
 		this.height = 600
 		this.width = 600
@@ -13,7 +13,6 @@ class Game {
 		this.gameIsOver = false
 		this.gameIntervalId = null
 		this.gameLoopFrequency = Math.round(1000 / 60)
-		// this.gameLoopFrequency = 1000
 	}
 
 	start() {
@@ -37,8 +36,8 @@ class Game {
 		}
 	}
 
-	update() {
-		this.player.move()
+		update() {
+			this.player.move()
 
 		// Check for collision and if an obstacle is still on the screen
 		for (let i = 0; i < this.obstacles.length; i++) {
@@ -93,6 +92,6 @@ class Game {
 		// Hide game screen
 		this.gameScreen.style.display = 'none'
 		// Show end game screen
-		this.gameEndScreen.style.display = 'block'
+		this.gameLoseScreen.style.display = 'block'
 	}
 }
